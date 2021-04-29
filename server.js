@@ -1,23 +1,27 @@
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
+const CourseAPI = require("./restOps")
+
  
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
 const typeDefs = gql`
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
+  type Course {
+    courseCode: String!
+    title: String!
+    hours: String!
+    summary: String!
+    prerequisites: String!
+    exclusions: String!
+    recommended: String!
+    distribution: String!
+    breadth: String!
+    program: String!
   }
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    books: [Book]
+    courseByID(id: String!): Course!
   }
 `;
 
@@ -34,11 +38,17 @@ const books = [
  
 const resolvers = {
   Query: {
-    books: () => books,
+    courseByID: async (_source, { id }, { dataSources }) => {
+      return dataSources.courseAPI.getCourse(id);
+    },
   },
 };
  
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, dataSources: () => {
+  return {
+    courseAPI: new CourseAPI()
+  };
+} });
  
 const app = express();
 server.applyMiddleware({ app });
