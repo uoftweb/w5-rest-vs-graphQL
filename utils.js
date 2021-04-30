@@ -19,8 +19,7 @@ function getCourses(id) {
   return courses;
 }
 
-function createCourse(course) {
-  const courses = readData();
+function validateCourse(course) {
   const fields = [
     "courseCode",
     "title",
@@ -43,6 +42,11 @@ function createCourse(course) {
   if (courses[course.courseCode]) {
     throw new Error("Course existed");
   }
+}
+
+function createCourse(course) {
+  const courses = readData();
+  validateCourse(course);
 
   courses[course.courseCode] = course;
 
