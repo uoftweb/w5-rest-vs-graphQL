@@ -19,7 +19,7 @@ function getCourses(id) {
   return courses;
 }
 
-function validateCourse(course) {
+function validateCourse(courses, newCourse) {
   const fields = [
     "courseCode",
     "title",
@@ -34,23 +34,23 @@ function validateCourse(course) {
   ];
 
   for (const field of fields) {
-    if (!course.hasOwnProperty(field)) {
+    if (!newCourse.hasOwnProperty(field)) {
       throw new Error(`Course missing field: ${field}`);
     }
   }
 
-  if (courses[course.courseCode]) {
-    throw new Error("Course existed");
+  if (courses[newCourse.courseCode]) {
+    throw new Error("Course exists");
   }
 }
 
 function createCourse(course) {
-  const courses = readData();
-  validateCourse(course);
+  const courseData = readData();
+  validateCourse(courseData, course);
 
-  courses[course.courseCode] = course;
+  courseData[course.courseCode] = course;
 
-  writeData(courses);
+  writeData(courseData);
 }
 
 module.exports = { getCourseByID, getCourses, createCourse };
