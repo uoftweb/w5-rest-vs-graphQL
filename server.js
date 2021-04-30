@@ -12,9 +12,9 @@ const typeDefs = gql`
     title: String!
     hours: String!
     summary: String!
-    prerequisites: String!
-    exclusions: String!
-    recommended: String!
+    prerequisites: String
+    exclusions: String
+    recommended: String
     distribution: String!
     breadth: String!
     program: String!
@@ -25,17 +25,6 @@ const typeDefs = gql`
   }
 `;
 
-const books = [
-    {
-      title: 'The Awakening',
-      author: 'Kate Chopin',
-    },
-    {
-      title: 'City of Glass',
-      author: 'Paul Auster',
-    },
-  ];
- 
 const resolvers = {
   Query: {
     courseByID: async (_source, { id }, { dataSources }) => {

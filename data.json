@@ -1,0 +1,50 @@
+{
+  "CSC369H1": {
+    "courseCode": "CSC369H1",
+    "title": "Operating Systems",
+    "hours": "24L/12T",
+    "summary": "Principles of operating systems. The operating system as a control program and as a resource allocator. The concept of a process and concurrency problems: synchronization, mutual exclusion, deadlock. Additional topics include memory management, file systems, process scheduling, threads, and protection.",
+    "prerequisites": "CSC209H1,  CSC258H1",
+    "exclusions": "NOTE: Students not enrolled in the Computer Science Major or Specialist program at the UTSG, UTM, or UTSC are limited to a maximum of three 300-/400-level CSC/ECE half-courses.",
+    "recommended": "NULL",
+    "distribution": "Science",
+    "breadth": "The Physical and Mathematical Universes (5)",
+    "program": "Computer Science"
+  },
+  "CSC309H1": {
+    "courseCode": "CSC309H1",
+    "title": "Programming on the Web",
+    "hours": "24L/12T",
+    "summary": "An introduction to software development on the web. Concepts underlying the development of programs that operate on the web; survey of technological alternatives; greater depth on some technologies. Operational concepts of the internet and the web, static client content, dynamic client content, dynamically served content, n-tiered architectures, web development processes, and security on the web. Assignments involve increasingly more complex web-based programs. Guest lecturers from leading e-commerce firms will describe the architecture and operation of their web sites.",
+    "prerequisites": "CSC209H1",
+    "exclusions": "NOTE: Students not enrolled in the Computer Science Major or Specialist program at the UTSG, UTM, or UTSC are limited to a maximum of three 300-/400-level CSC/ECE half-courses.",
+    "recommended": "CSC343H1",
+    "distribution": "Science",
+    "breadth": "The Physical and Mathematical Universes (5)",
+    "program": "Computer Science"
+  },
+  "CSC404H1": {
+    "courseCode": "CSC404H1",
+    "title": "Introduction to Video Game Design",
+    "hours": "24L/12T",
+    "summary": "Concepts and techniques for the design and development of electronic games. History, social issues, and story elements. The business of game development and game promotion. Software engineering, artificial intelligence, and graphics elements. Level and model design. Audio elements. Practical assignments leading to team implementation of a complete game.",
+    "prerequisites": "CSC301H1/​ CSC318H1/​ CSC384H1/​ CSC418H1",
+    "exclusions": "NOTE: Students not enrolled in the Computer Science Major or Specialist program at the UTSG, UTM, or UTSC are limited to a maximum of three 300-/400-level CSC/ECE half-courses.",
+    "recommended": "NULL",
+    "distribution": "Science",
+    "breadth": "Creative and Cultural Representations (1)",
+    "program": "Computer Science"
+  },
+  "CSC488H1": {
+    "courseCode": "CSC488H1",
+    "title": "Compilers and Interpreters",
+    "hours": "24L/12T",
+    "summary": "The structure of compilers, Programming language processing. Scanning based on regular expressions, Parsing using context free grammars, Semantic analysis (type and usage checking), Compiler dictionaries and tables. Runtime organization and storage allocation, code generation, optimization. Use of modern compiler building tools. Course project involves building a complete compiler.",
+    "prerequisites": "CSC258H1,  CSC324H1,  CSC263H1/​ CSC265H1",
+    "exclusions": "NOTE: Students not enrolled in the Computer Science Major or Specialist program at the UTSG, UTM, or UTSC are limited to a maximum of three 300-/400-level CSC/ECE half-courses.",
+    "recommended": "NULL",
+    "distribution": "Science",
+    "breadth": "The Physical and Mathematical Universes (5)",
+    "program": "Computer Science"
+  }
+}
