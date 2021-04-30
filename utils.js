@@ -1,20 +1,27 @@
 const fs = require('fs');
 
-function getCourseByID(id){
+
+function readData(){
     const rawdata = fs.readFileSync('data.json');
-    const courses = JSON.parse(rawdata);
+    return JSON.parse(rawdata);
+}
+
+function writeData(courses){
+    fs.writeFileSync('data.json', JSON.stringify(courses));
+}
+
+function getCourseByID(id){
+    const courses = readData()
     return courses[id];
 }
 
 function getCourses(id){
-    const rawdata = fs.readFileSync('data.json');
-    const courses = JSON.parse(rawdata);
+    const courses = readData()
     return courses;
 }
 
 function createCourse(course) {
-    const rawdata = fs.readFileSync('data.json');
-    const courses = JSON.parse(rawdata);
+    const courses = readData()
     const fields = ["courseCode", "title", "hours", "summary"]
 
     for (const field of fields){
@@ -29,7 +36,7 @@ function createCourse(course) {
 
     courses[course.courseCode] = course
 
-    fs.writeFileSync('data.json', JSON.stringify(courses));
+    writeData(courses)
 }
 
 module.exports = {getCourseByID, getCourses, createCourse}
