@@ -1,7 +1,25 @@
 {
+  "name": "graphql-may-5",
+  "description": "Demo of same API built with REST and GraphQL",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uoftweb/graphQL-May-5.git"
+  },
+  "author": "Max Pham & Umar Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uoftweb/graphQL-May-5/issues"
+  },
+  "homepage": "https://github.com/uoftweb/graphQL-May-5#readme",
   "dependencies": {
     "apollo-datasource-rest": "^0.12.0",
     "apollo-server-express": "^2.22.2",
     "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "rest": "node rest.js",
+    "graph": "node graph.js"
   }
 }
