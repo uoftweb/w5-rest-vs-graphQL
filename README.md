@@ -1,4 +1,6 @@
 # Code demo for GraphQL event
 
-## Run dev
-* `node server.js`
+## Run
+
+* REST: `npm run rest`
+* GraphQL: `npm run graph`
