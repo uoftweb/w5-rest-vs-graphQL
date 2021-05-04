@@ -16,7 +16,7 @@ function getCourseByID(id) {
 
 function getCourses(id) {
   const courses = readData();
-  return courses;
+  return Object.values(courses);
 }
 
 function validateCourse(courses, newCourse) {
@@ -25,16 +25,13 @@ function validateCourse(courses, newCourse) {
     "title",
     "hours",
     "summary",
-    "prerequisites",
-    "exclusions",
-    "recommended",
     "distribution",
     "breadth",
     "program",
   ];
-
   for (const field of fields) {
-    if (!newCourse.hasOwnProperty(field)) {
+
+    if (newCourse[field] == undefined) {
       throw new Error(`Course missing field: ${field}`);
     }
   }

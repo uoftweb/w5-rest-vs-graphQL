@@ -36,11 +36,11 @@ const typeDefs = gql`
 
   type Query {
     courseByID(id: String!): Course
-    allCourses: [Course!]
+    allCourses: [Course]
   }
 
   type Mutation {
-    createCourse(course: CourseInput): Course
+    createCourse(course: CourseInput): Course!
   }
 `;
 
@@ -50,23 +50,13 @@ const resolvers = {
       return utils.getCourseByID(id);
     },
     allCourses: async (_source, _, { utils }) => {
-      return {data: utils.getCourses()};
+      return utils.getCourses();
     },
   },
   Mutation: {
     createCourse: async (_source, { course }, { utils }) => {
-      let response;
-      try {
-        utils.createCourse(course);
-        response = { status: "success" };
-      } catch (error) {
-        response = { status: "failure", error: error.message };
-      }
-
-      return {
-        success: response.status == "success",
-        message: response.message,
-      };
+      utils.createCourse(course);
+      return course;
     },
   },
 };
