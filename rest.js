@@ -6,29 +6,14 @@ app.use(express.json());
 
 const PORT = 4004;
 
-app.get("/courses/:id", function (req, res) {
-  const id = req.params.id;
-  const course = utils.getCourseByID(id);
-  res.send(course);
-});
+// CODE STARTS FROM HERE
 
-app.get("/courses", function (req, res) {
-  const courses = utils.getCourses();
-  res.send(courses);
-});
 
-// Create a new course
-app.post("/courses", function (req, res) {
-  let response;
-  try {
-    utils.createCourse(req.body);
-    response = { status: "success" };
-  } catch (error) {
-    response = { status: "failure", error: error.message };
-  }
-  res.send(response);
-});
 
+
+
+
+// CODE ENDS HERE
 
 app.listen({ port: PORT }, () =>
   console.log(`Now browse to http://localhost:${PORT}`)
