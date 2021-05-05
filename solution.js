@@ -1,19 +1,12 @@
-const express = require("express");
-const utils = require("./utils");
+####### CODE SOLUTION STARTS FROM HERE ###################
 
-const app = express();
-app.use(express.json());
 
-const PORT = 4004;
-
-// Get a course by ID
 app.get("/courses/:id", function (req, res) {
   const id = req.params.id;
   const course = utils.getCourseByID(id);
   res.send(course);
 });
 
-// Get all courses
 app.get("/courses", function (req, res) {
   const courses = utils.getCourses();
   res.send(courses);
@@ -31,26 +24,11 @@ app.post("/courses", function (req, res) {
   res.send(response);
 });
 
-app.listen({ port: PORT }, () =>
-  console.log(`Now browse to http://localhost:${PORT}`)
-);
 
+---------------------------GRAPHQL BELOW--------------------------------
 
-#############################################################
+####### CODE SOLUTION STARTS FROM HERE #################
 
-
-const express = require("express");
-const { ApolloServer, gql } = require("apollo-server-express");
-const utils = require("./utils");
-
-const app = express();
-server.applyMiddleware({ app });
-
-const PORT = 4003;
-
-// A schema is a collection of type definitions (hence "typeDefs")
-// that together define the "shape" of queries that are executed against
-// your data.
 const typeDefs = gql`
   type Course {
     courseCode: String!
@@ -84,7 +62,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createCourse(course: CourseInput): Course
+    createCourse(course: CourseInput): Course!
   }
 `;
 
@@ -99,28 +77,8 @@ const resolvers = {
   },
   Mutation: {
     createCourse: async (_source, { course }, { utils }) => {
-      let response;
-      try {
-        utils.createCourse(course);
-        response = { status: "success" };
-      } catch (error) {
-        response = { status: "failure", error: error.message };
-      }
-
-      return {
-        success: response.status == "success",
-        message: response.message,
-      };
+      utils.createCourse(course);
+      return course;
     },
   },
 };
-
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: () => ({ utils: utils }),
-});
-
-app.listen({ port: PORT }, () =>
-  console.log(`Now browse to http://localhost:${PORT}${server.graphqlPath}`)
-);
